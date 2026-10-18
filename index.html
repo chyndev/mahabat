@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Махабат: олуттуу максатта таанышуу тиркемеси</title>
+<meta name="description" content="Махабат — кыргыз тилиндеги таанышуу тиркемеси. Профиль түзүп, сурам жөнөтүп, чатташып жана үн чалуу аркылуу сүйлөшүңүз. 18+, Android.">
+<meta name="theme-color" content="#0F0F14">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Махабат">
+<meta property="og:description" content="Олуттуу максатта таанышуу тиркемеси. Android үчүн.">
+<meta property="og:type" content="website">
+
+<style>
+  :root {
+    --night: #0F0F14;
+    --panel: #1E1E28;
+    --line: #2A2A36;
+    --text: #FFFFFF;
+    --soft: #D0D0D8;
+    --muted: #A0A0AB;
+    --accent: #FF2D55;
+    --accent-dark: #D81E45;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--night);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  .wrap { max-width: 480px; margin: 0 auto; padding: 20px 16px 48px; }
+
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  /* ---------- Баш жагы ---------- */
+  .head { display: flex; align-items: center; gap: 16px; }
+  .icon {
+    width: 72px; height: 72px; flex: none;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #FF4D6D, #C2185B);
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .icon svg { width: 38px; height: 38px; fill: #fff; }
+  h1 { font-size: 30px; line-height: 1.1; font-weight: 800; letter-spacing: -0.01em; }
+  .tagline { margin-top: 4px; font-size: 14px; color: var(--muted); }
+
+  .badges { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .badge {
+    font-size: 15px; font-weight: 700; color: var(--soft);
+    padding: 5px 14px; border: 1.5px solid var(--line); border-radius: 999px;
+  }
+  .rule { height: 1px; background: var(--line); margin: 20px 0; border: 0; }
+
+  .banner {
+    background: #2B1A20; border: 1px solid #5A2A36; color: #FFC2CE;
+    border-radius: 14px; padding: 12px 14px; font-size: 14px; margin-bottom: 16px;
+  }
+
+  /* ---------- Видео жана сүрөттөр ---------- */
+  .media { display: grid; grid-template-columns: 1fr 1.1fr; gap: 12px; }
+  .tile {
+    position: relative; height: 300px; overflow: hidden;
+    border-radius: 22px; background: var(--panel);
+    border: 1px solid var(--line);
+  }
+  .cap {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 28px 12px 12px; text-align: center;
+    font-size: 14px; font-weight: 700; color: #fff;
+    background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0));
+    pointer-events: none;
+  }
+
+  .video { background: radial-gradient(120% 90% at 30% 20%, #3A1F2B 0%, #1E1E28 60%); }
+  .video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
+  .play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -58%);
+    width: 76px; height: 76px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--accent); display: grid; place-items: center;
+  }
+  .play svg { width: 34px; height: 34px; fill: #fff; margin-left: 4px; }
+  .play:active { background: var(--accent-dark); }
+  .video.playing .play, .video.playing .cap { display: none; }
+
+  .shots .track {
+    display: flex; height: 100%;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+  }
+  .shots .track::-webkit-scrollbar { display: none; }
+  .slide {
+    flex: 0 0 100%; scroll-snap-align: center;
+    display: grid; place-items: center;
+    background: linear-gradient(160deg, #2A2A36, #1E1E28);
+    color: var(--muted); font-size: 14px;
+  }
+  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ---------- Жүктөө баскычы ---------- */
+  .dl {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    width: 100%; height: 60px; margin-top: 20px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    font-size: 19px; font-weight: 800; border-radius: 18px;
+  }
+  .dl:active { background: var(--accent-dark); }
+  .dl svg { width: 24px; height: 24px; fill: #fff; }
+  .dl-note { margin-top: 10px; text-align: center; font-size: 13px; color: var(--muted); }
+
+  /* ---------- Бөлүмдөр ---------- */
+  .sec { margin-top: 36px; }
+  .sec h2 { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
+  .panel { background: var(--panel); border-radius: 20px; padding: 20px; }
+  .panel p { color: var(--soft); font-size: 16px; }
+  .panel p + p { margin-top: 12px; }
+
+  .list { list-style: none; margin-top: 16px; display: grid; gap: 10px; }
+  .list li { position: relative; padding-left: 22px; color: var(--soft); font-size: 15px; }
+  .list li::before {
+    content: ""; position: absolute; left: 2px; top: 9px;
+    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+  }
+
+  .steps { list-style: none; counter-reset: s; display: grid; gap: 18px; }
+  .steps li {
+    counter-increment: s;
+    display: grid; grid-template-columns: 30px 1fr; gap: 14px; align-items: start;
+    color: var(--soft); font-size: 15.5px;
+  }
+  .steps li::before {
+    content: counter(s);
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-weight: 800; font-size: 15px;
+    display: grid; place-items: center;
+  }
+  .steps b { color: #fff; font-weight: 700; }
+
+  details { border-top: 1px solid var(--line); padding: 14px 0; }
+  details:first-of-type { margin-top: 22px; }
+  details:last-child { padding-bottom: 0; }
+  summary { cursor: pointer; font-weight: 700; font-size: 15.5px; list-style: none; padding-right: 24px; position: relative; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 2px; top: -2px;
+    font-size: 24px; font-weight: 400; color: var(--muted);
+  }
+  details[open] summary::after { content: "−"; }
+  details p { margin-top: 10px; color: var(--muted); font-size: 15px; }
+
+  /* ---------- Төмөнкү бөлүк ---------- */
+  .foot { margin-top: 40px; text-align: center; font-size: 13px; color: var(--muted); }
+  .foot p + p { margin-top: 8px; }
+  .foot a { color: var(--soft); }
+  .privacy { margin-top: 24px; text-align: left; }
+  .privacy details { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .privacy p { color: var(--muted); font-size: 14px; }
+  .privacy p + p { margin-top: 8px; }
+
+  /* ---------- Билдирүү ---------- */
+  .toast {
+    position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0));
+    transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+    background: #fff; color: #111; padding: 12px 18px; border-radius: 14px;
+    font-size: 14px; font-weight: 600; max-width: calc(100% - 32px); text-align: center;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .toast { transition: none; }
+  }
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <!-- Тиркеменин аты -->
+  <header class="head">
+    <div class="icon" id="appIcon" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+    <div>
+      <h1>Махабат</h1>
+      <p class="tagline">Олуттуу максатта таанышуу</p>
+    </div>
+  </header>
+
+  <div class="badges">
+    <span class="badge">18+</span>
+    <span class="badge" id="sizeBadge">22 МБ</span>
+    <span class="badge">Android</span>
+  </div>
+
+  <hr class="rule">
+
+  <div class="banner" id="notAndroid" hidden>
+    Бул тиркеме Android телефондор үчүн. Сайтты Android телефонуңуздан ачып жүктөңүз.
+  </div>
+
+  <!-- Видео жана сүрөттөр -->
+  <section class="media" aria-label="Тиркеме кандай көрүнөт">
+    <div class="tile video" id="videoCard">
+      <button class="play" id="playBtn" type="button" aria-label="Видеону көрүү">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <span class="cap">1 видео</span>
+    </div>
+
+    <div class="tile shots">
+      <div class="track" id="track" tabindex="0" aria-label="Тиркемеден сүрөттөр, капталга жылдырыңыз"></div>
+      <span class="cap" id="shotCap">7 сүрөт</span>
+    </div>
+  </section>
+
+  <!-- Жүктөө -->
+  <a class="dl" id="dl" href="mahabat.apk" download>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
+    <span>Жүктөп алуу</span>
+  </a>
+  <p class="dl-note">Тиркеме Google Play'де эмес, ошондуктан орнотууда телефон эскертет. Кантип орнотуу керек, төмөндө.</p>
+
+  <!-- Тиркеме жөнүндө -->
+  <section class="sec" id="about">
+    <h2>Тиркеме жөнүндө</h2>
+    <div class="panel">
+      <p>Махабат — кыргыз тилинде жасалган таанышуу тиркемеси. Ал олуттуу мамиле издеген, 18 жаштан өткөн адамдар үчүн.</p>
+      <p>Профилиңизди түзөсүз, башка адамдарды карап, сурам жөнөтөсүз. Сурам кабыл алынса, чатташып, тиркеменин өзүндө үн чалуу аркылуу сүйлөшө аласыз.</p>
+      <ul class="list">
+        <li>Номериңизди бербей эле тиркемеде сүйлөшөсүз</li>
+        <li>Онлайн экениңизди жашырса болот</li>
+        <li>Каалаган колдонуучуну бөгөттөп, даттанса болот</li>
+        <li>Сүйлөшкөн үнүңүз жазылбайт</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Түшүндүрмө -->
+  <section class="sec" id="howto">
+    <h2>Түшүндүрмө</h2>
+    <div class="panel">
+      <ol class="steps">
+        <li><span><b>«Жүктөп алуу»</b> баскычын басыңыз. Браузер «Бул файл түзмөккө зыян келтириши мүмкүн» деп эскертсе, <b>«Баары бир сактоо»</b> тандаңыз.</span></li>
+        <li><span>Жүктөлгөн файлды ачыңыз: браузердин ылдый жагындагы <b>«Ачуу»</b> же телефондун <b>«Жүктөөлөр»</b> папкасы.</span></li>
+        <li><span>«Коопсуздук үчүн орнотууга тыюу салынган» деп чыкса, <b>«Жөндөөлөр»</b> ачылат. Анда <b>«Бул булактан уруксат берүү»</b> күйгүзүп, артка кайтыңыз.</span></li>
+        <li><span><b>«Орнотуу»</b> басыңыз. Экранда «Тиркеме түзмөктү коргоо үчүн бөгөттөлдү» деп чыкса (Play Protect бул иштеп чыгуучунун тиркемелерин мурун текшербеген), <b>«ОК» басбаңыз</b>. <b>«Толугураак»</b> (Подробнее) басып, андан <b>«Баары бир орнотуу»</b> (Установить всё равно) тандаңыз.</span></li>
+        <li><span>Тиркемени ачып, профилиңизди толтуруңуз.</span></li>
+      </ol>
+
+      <details>
+        <summary>Эмне үчүн «белгисиз булак» деп эскертет?</summary>
+        <p>Тиркеме Google Play аркылуу эмес, түз ушул сайттан таркатылат. Телефон мындай тиркемелердин баарына эскертет. Тиркемени ушул сайттан гана жүктөңүз.</p>
+      </details>
+      <details>
+        <summary>Орнотуп бүткөндөн кийин уруксатты өчүрсөм болобу?</summary>
+        <p>Ооба. Орнотуу аяктагандан кийин «Жөндөөлөр» ичинен браузер үчүн «белгисиз булактан орнотууга» уруксатты кайра өчүрүп койсоңуз болот.</p>
+      </details>
+      <details>
+        <summary>Кайсы телефондор колдойт?</summary>
+        <p>Android 7.0 жана андан жогорку версиядагы телефондор.</p>
+      </details>
+      <details>
+        <summary>Жаңы нускасы чыкса, кантип алам?</summary>
+        <p>Ушул сайттан кайра жүктөп, эски тиркеменин үстүнөн орнотосуз. Профилиңиз менен чаттарыңыз сакталат.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Төмөнкү бөлүк -->
+  <footer class="foot">
+    <p id="contactLine" hidden></p>
+    <p>Тиркеме 18 жаштан өткөндөр үчүн.</p>
+
+    <div class="privacy" id="privacy">
+      <details>
+        <summary>Купуялык саясаты</summary>
+        <p><b>Кандай маалымат чогултабыз.</b> Профилде өзүңүз жазган аты, жашы, жынысы, жашаган жери, өзүңүз жөнүндө текст жана каалоо боюнча сүрөт. Ошондой эле кабарлар, онлайн абалы (аны жашырса болот) жана чалуулар тарыхы (качан, ким менен, канча убакыт).</p>
+        <p><b>Эмне сурабайбыз.</b> Телефон номериңизди, даректи жана контакттарыңызды сурабайбыз.</p>
+        <p><b>Үн чалуу.</b> Үн жазылбайт жана сакталбайт. Чалуу үчүн Agora кызматы колдонулат.</p>
+        <p><b>Маалымат кайда сакталат.</b> Google Firebase серверлеринде. Профилиңиздеги маалымат башка колдонуучуларга көрүнөт.</p>
+        <p><b>Даттануу.</b> Колдонуучу даттанганда, ошол чаттын акыркы кабарлары модераторго жеткирилет.</p>
+        <p><b>Маалыматты өчүрүү.</b> Профилиңизди жана маалыматыңызды өчүрүүнү суранып, биз менен байланышыңыз.</p>
+      </details>
+    </div>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  // ---------------------------------------------------------------
+  // Бул жерди гана өзгөртсөңүз жетет
+  // ---------------------------------------------------------------
+  const CONFIG = {
+    apk: "mahabat.apk",                 // тиркеменин файлы (index.html менен бир папкада)
+    apkSize: "22 МБ",                   // файлдын көлөмү
+    icon: "img/icon.png",               // тиркеменин иконкасы (жок болсо, жүрөк чыгат)
+    video: "demo.mp4",                  // видео (жок болсо, "жакында" деп чыгат)
+    shots: [                            // 7 сүрөт: img папкасына 1.jpg ... 7.jpg салыңыз
+      "img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg",
+      "img/5.jpg", "img/6.jpg", "img/7.jpg"
+    ],
+    email: "",                          // мисалы: "info@mahabat.kg"
+    telegram: ""                        // мисалы: "https://t.me/mahabat"
+  };
+
+  // ---------------------------------------------------------------
+  const $ = (id) => document.getElementById(id);
+
+  $("dl").href = CONFIG.apk;
+  $("sizeBadge").textContent = CONFIG.apkSize;
+
+  // Билдирүү
+  let toastTimer;
+  function showToast(text) {
+    const t = $("toast");
+    t.textContent = text;
+    t.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove("show"), 3500);
+  }
+
+  // Иконка
+  (function () {
+    const probe = new Image();
+    probe.onload = () => {
+      probe.alt = "";
+      $("appIcon").replaceChildren(probe);
+    };
+    probe.src = CONFIG.icon;
+  })();
+
+  // Android эмес түзмөк
+  if (!/Android/i.test(navigator.userAgent)) $("notAndroid").hidden = false;
+
+  // Сүрөттөр: капталга жылат
+  const track = $("track");
+  const shotCap = $("shotCap");
+  const total = CONFIG.shots.length;
+
+  CONFIG.shots.forEach((src, i) => {
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    slide.textContent = "Сүрөт " + (i + 1);
+
+    const img = new Image();
+    img.alt = "Тиркемеден сүрөт " + (i + 1);
+    img.decoding = "async";
+    img.onload = () => slide.replaceChildren(img);
+    img.src = src;
+
+    track.appendChild(slide);
+  });
+
+  track.addEventListener("scroll", () => {
+    const i = Math.round(track.scrollLeft / track.clientWidth);
+    shotCap.textContent = (i + 1) + " / " + total;
+  }, { passive: true });
+
+  // Видео
+  const videoCard = $("videoCard");
+  $("playBtn").addEventListener("click", () => {
+    const v = document.createElement("video");
+    v.src = CONFIG.video;
+    v.controls = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    v.setAttribute("playsinline", "");
+    v.addEventListener("error", () => {
+      v.remove();
+      videoCard.classList.remove("playing");
+      showToast("Видео жакында кошулат");
+    });
+    videoCard.classList.add("playing");
+    videoCard.appendChild(v);
+  });
+
+  // Жүктөө басылганда
+  $("dl").addEventListener("click", () => {
+    showToast("Жүктөө башталды. Орнотуу кадамдарын төмөндөн караңыз");
+  });
+
+  // Байланыш
+  const parts = [];
+  if (CONFIG.email) parts.push('<a href="mailto:' + CONFIG.email + '">' + CONFIG.email + "</a>");
+  if (CONFIG.telegram) parts.push('<a href="' + CONFIG.telegram + '" rel="noopener">Telegram</a>');
+  if (parts.length) {
+    const line = $("contactLine");
+    line.innerHTML = "Байланыш: " + parts.join(", ");
+    line.hidden = false;
+  }
+</script>
+</body>
+</html>
