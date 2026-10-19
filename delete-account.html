@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Махабат: аккаунтту өчүрүү / Delete account</title>
+<meta name="description" content="Махабат тиркемесинин профилин жана маалыматын өчүрүүнү суроо. Request deletion of your Mahabat account and data.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0F0F14">
+
+<style>
+  :root {
+    --night: #0F0F14;
+    --panel: #1E1E28;
+    --line: #2A2A36;
+    --text: #FFFFFF;
+    --soft: #D0D0D8;
+    --muted: #A0A0AB;
+    --accent: #FF2D55;
+    --accent-dark: #D81E45;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--night); color: var(--soft);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65; font-size: 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 28px 18px 64px; }
+  a { color: #FF6B88; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .brand { font-size: 18px; font-weight: 800; color: var(--text); text-decoration: none; }
+  .langs { display: inline-flex; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .langs button {
+    border: 0; background: transparent; color: var(--muted); cursor: pointer;
+    font: inherit; font-weight: 700; font-size: 14px; padding: 6px 14px; border-radius: 999px;
+  }
+  .langs button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+  h1 { margin-top: 28px; font-size: 30px; line-height: 1.2; color: var(--text); letter-spacing: -0.01em; }
+  .meta { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  h2 { margin-top: 30px; font-size: 20px; color: var(--text); line-height: 1.3; }
+  p { margin-top: 10px; }
+  ul { margin: 10px 0 0 20px; display: grid; gap: 8px; }
+  li b, p b { color: var(--text); }
+
+  .card {
+    margin-top: 22px; padding: 20px; border-radius: 18px;
+    background: var(--panel); border: 1px solid var(--line);
+  }
+  .card h2 { margin-top: 0; }
+  .steps { list-style: none; counter-reset: s; margin: 14px 0 0; padding: 0; display: grid; gap: 14px; }
+  .steps li {
+    counter-increment: s; position: relative; padding-left: 40px;
+  }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 0;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-weight: 800; font-size: 14px;
+    display: grid; place-items: center;
+  }
+  .btn {
+    display: block; margin-top: 18px; padding: 16px 20px; text-align: center;
+    background: var(--accent); color: #fff; text-decoration: none;
+    font-weight: 800; font-size: 17px; border-radius: 14px;
+  }
+  .btn:active { background: var(--accent-dark); }
+  .warn { margin-top: 14px; font-size: 14px; color: var(--muted); }
+
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+
+  .doc[hidden] { display: none; }
+</style>
+<noscript><style>.doc[hidden] { display: block; }</style></noscript>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="brand" href="./">Махабат</a>
+    <div class="langs" role="group" aria-label="Тил / Язык / Language">
+      <button type="button" data-lang="ky" aria-pressed="true">Кыргызча</button>
+      <button type="button" data-lang="ru" aria-pressed="false">Русский</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+
+  <!-- ===================== КЫРГЫЗЧА ===================== -->
+  <article class="doc" id="doc-ky" lang="ky">
+    <h1>Махабат: аккаунтту жана маалыматты өчүрүү</h1>
+    <p>Бул баракта Махабат тиркемесинин (иштеп чыгуучу: ChynDev) профилин жана ага байланышкан бардык маалыматты өчүрүүнү суранууга болот. Тиркемени кайра орнотуунун кереги жок.</p>
+
+    <div class="card">
+      <h2>Кантип өчүрүү керек</h2>
+      <ol class="steps">
+        <li>Төмөнкү баскычты басып, электрондук кат жазыңыз.</li>
+        <li>Катта профилиңиздин <b>атын</b> жана <b>колдонуучу номериңизди (№)</b> көрсөтүңүз (ал тиркемедеги профилиңизде көрүнөт). Номерди билбесеңиз, профилиңизди табууга жардам берген маалыматты жазыңыз: жашы, облусу, району.</li>
+        <li>Профилиңизди тастыктоо үчүн (башка адамдын профилин өчүрүп албаш үчүн) биз кошумча суроо жөнөтүшүбүз мүмкүн.</li>
+        <li>Суроону алгандан кийин <b>30 күндүн ичинде</b> профилиңизди жана маалыматыңызды өчүрүп, сизге кабарлайбыз.</li>
+      </ol>
+      <a class="btn mail-btn" href="#">Өчүрүү өтүнмөсүн жөнөтүү</a>
+      <p class="warn">Эгер баскыч почта тиркемесин ачпаса, төмөнкү дарекке өзүңүз жазыңыз: <b class="mail-text"></b></p>
+    </div>
+
+    <h2>Эмне өчүрүлөт</h2>
+    <ul>
+      <li>Профиль маалыматы: аты, жашы, жынысы, жери, тексттери.</li>
+      <li>Профилдеги сүрөт.</li>
+      <li>Колдонуучунун ID жана номери (№).</li>
+      <li>Чаттар жана кабарлар, жөнөтүлгөн жана алынган сурамдар.</li>
+      <li>Чалуулар тарыхы жана чалуу жөндөөлөрү.</li>
+      <li>Онлайн абалы жана башка байланышкан жазуулар.</li>
+    </ul>
+
+    <h2>Эмне убактылуу сакталышы мүмкүн</h2>
+    <p>Коопсуздук максатында (бөгөттөр, даттануулар, эскертүүлөр жана бөгөт коюлган жазуулар) кээ бир жазуулар <b>эң көп 90 күн</b> сакталышы мүмкүн. Мыйзам талап кылса, андан узагыраак сакталат. Андан кийин алар да өчүрүлөт.</p>
+
+    <h2>Эскертүү</h2>
+    <p>Өчүрүү кайтарылгыс: профилиңиз, чаттарыңыз жана башка маалыматыңыз калыбына келтирилбейт. Профилиңиз башка колдонуучуларга көрүнбөй калат. Тиркемени кайра колдонгуңуз келсе, жаңы профиль түзүшүңүз керек.</p>
+
+    <p class="warn">Купуялык саясаты: <a href="privacy.html">privacy.html</a></p>
+  </article>
+
+  <!-- ===================== РУССКИЙ ===================== -->
+  <article class="doc" id="doc-ru" lang="ru" hidden>
+    <h1>Махабат: удаление аккаунта и данных</h1>
+    <p>На этой странице можно запросить удаление профиля в приложении Махабат (разработчик: ChynDev) и всех связанных с ним данных. Переустанавливать приложение не нужно.</p>
+
+    <div class="card">
+      <h2>Как удалить</h2>
+      <ol class="steps">
+        <li>Нажмите кнопку ниже и отправьте письмо.</li>
+        <li>В письме укажите <b>имя</b> из вашего профиля и <b>номер пользователя (№)</b> (он виден в вашем профиле в приложении). Если номера нет под рукой, укажите данные, по которым можно найти профиль: возраст, область, район.</li>
+        <li>Мы можем задать дополнительный вопрос, чтобы убедиться, что профиль ваш (чтобы никто не удалил чужой профиль).</li>
+        <li>В течение <b>30 дней</b> после получения запроса мы удалим профиль и данные и сообщим вам об этом.</li>
+      </ol>
+      <a class="btn mail-btn" href="#">Отправить запрос на удаление</a>
+      <p class="warn">Если кнопка не открывает почтовое приложение, напишите на адрес: <b class="mail-text"></b></p>
+    </div>
+
+    <h2>Что удаляется</h2>
+    <ul>
+      <li>Данные профиля: имя, возраст, пол, местоположение, тексты.</li>
+      <li>Фото профиля.</li>
+      <li>ID и номер (№) пользователя.</li>
+      <li>Чаты и сообщения, отправленные и полученные запросы.</li>
+      <li>История звонков и настройки звонков.</li>
+      <li>Онлайн-статус и другие связанные записи.</li>
+    </ul>
+
+    <h2>Что может храниться временно</h2>
+    <p>В целях безопасности (блокировки, жалобы, предупреждения и записи о банах) некоторые записи могут храниться <b>не более 90 дней</b>. Если этого требует закон, они могут храниться дольше. После этого они тоже удаляются.</p>
+
+    <h2>Важно</h2>
+    <p>Удаление необратимо: профиль, чаты и другие данные восстановить нельзя. Ваш профиль перестанет быть виден другим пользователям. Чтобы снова пользоваться приложением, придётся создать новый профиль.</p>
+
+    <p class="warn">Политика конфиденциальности: <a href="privacy.html">privacy.html</a></p>
+  </article>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <article class="doc" id="doc-en" lang="en" hidden>
+    <h1>Mahabat: delete your account and data</h1>
+    <p>On this page you can request deletion of your profile in the Mahabat app (developer: ChynDev) and all data linked to it. You do not need to reinstall the app.</p>
+
+    <div class="card">
+      <h2>How to request deletion</h2>
+      <ol class="steps">
+        <li>Tap the button below and send us an email.</li>
+        <li>In the email, give the <b>name</b> on your profile and your <b>user number (№)</b>, which is shown on your profile in the app. If you do not have the number, give details that help us find your profile: age, region, district.</li>
+        <li>We may ask a follow-up question to confirm the profile is yours, so that nobody can delete someone else’s profile.</li>
+        <li>Within <b>30 days</b> of receiving your request we will delete your profile and data and let you know.</li>
+      </ol>
+      <a class="btn mail-btn" href="#">Send a deletion request</a>
+      <p class="warn">If the button does not open your email app, write to: <b class="mail-text"></b></p>
+    </div>
+
+    <h2>What is deleted</h2>
+    <ul>
+      <li>Profile data: name, age, gender, location, texts.</li>
+      <li>Your profile photo.</li>
+      <li>Your user ID and number (№).</li>
+      <li>Chats and messages, sent and received requests.</li>
+      <li>Call history and call settings.</li>
+      <li>Online status and other linked records.</li>
+    </ul>
+
+    <h2>What may be kept temporarily</h2>
+    <p>For safety reasons (blocks, reports, warnings and ban records), some records may be kept for <b>up to 90 days</b>. If the law requires it, they may be kept longer. After that they are deleted too.</p>
+
+    <h2>Please note</h2>
+    <p>Deletion is permanent: your profile, chats and other data cannot be restored. Your profile will no longer be visible to other users. To use the app again you will need to create a new profile.</p>
+
+    <p class="warn">Privacy policy: <a href="privacy.html">privacy.html</a></p>
+  </article>
+
+  <footer>
+    © Махабат · ChynDev
+  </footer>
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // Бул жерге өзүңүздүн ачык байланыш почтаңызды жазыңыз (бир жолу)
+  // Купуялык барагындагы (privacy.html) почта менен бирдей болсун
+  // ---------------------------------------------------------------
+  const CONTACT_EMAIL = "";
+
+  const SUBJECTS = {
+    ky: "Махабат: профилимди өчүрүңүз",
+    ru: "Махабат: удалите мой профиль",
+    en: "Mahabat: delete my profile"
+  };
+  const BODIES = {
+    ky: "Профилимди жана бардык маалыматымды өчүрүүнү сурайм.\n\nАтым:\nКолдонуучу номерим (№):\nЖашым:\nОблусу, району:\n",
+    ru: "Прошу удалить мой профиль и все мои данные.\n\nИмя:\nНомер пользователя (№):\nВозраст:\nОбласть, район:\n",
+    en: "Please delete my profile and all my data.\n\nName:\nUser number (№):\nAge:\nRegion, district:\n"
+  };
+
+  function setMail(lang) {
+    document.querySelectorAll(".mail-btn").forEach((btn) => {
+      if (CONTACT_EMAIL) {
+        btn.href = "mailto:" + CONTACT_EMAIL +
+          "?subject=" + encodeURIComponent(SUBJECTS[lang]) +
+          "&body=" + encodeURIComponent(BODIES[lang]);
+      } else {
+        btn.removeAttribute("href");
+      }
+    });
+    document.querySelectorAll(".mail-text").forEach((el) => {
+      el.textContent = CONTACT_EMAIL || "[почтаны CONTACT_EMAIL ичине жазыңыз]";
+    });
+  }
+
+  const buttons = document.querySelectorAll(".langs button");
+  function show(lang) {
+    document.querySelectorAll(".doc").forEach((d) => {
+      d.hidden = d.id !== "doc-" + lang;
+    });
+    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+    document.documentElement.lang = lang;
+    setMail(lang);
+  }
+  buttons.forEach((b) => b.addEventListener("click", () => show(b.dataset.lang)));
+
+  const saved = (navigator.language || "").toLowerCase();
+  if (saved.startsWith("ru")) show("ru");
+  else if (saved.startsWith("en")) show("en");
+  else show("ky");
+</script>
+</body>
+</html>
