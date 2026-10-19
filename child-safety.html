@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Махабат: балдарды коргоо стандарттары / Child Safety Standards</title>
+<meta name="description" content="Махабат тиркемесинин балдарды коргоо стандарттары (CSAE). Child safety standards of the Mahabat app.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0F0F14">
+
+<style>
+  :root {
+    --night: #0F0F14; --panel: #1E1E28; --line: #2A2A36;
+    --text: #FFFFFF; --soft: #D0D0D8; --muted: #A0A0AB; --accent: #FF2D55;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--night); color: var(--soft);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65; font-size: 16px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 28px 18px 64px; }
+  a { color: #FF6B88; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .brand { font-size: 18px; font-weight: 800; color: var(--text); text-decoration: none; }
+  .langs { display: inline-flex; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .langs button {
+    border: 0; background: transparent; color: var(--muted); cursor: pointer;
+    font: inherit; font-weight: 700; font-size: 14px; padding: 6px 14px; border-radius: 999px;
+  }
+  .langs button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+  h1 { margin-top: 28px; font-size: 30px; line-height: 1.2; color: var(--text); letter-spacing: -0.01em; }
+  .meta { margin-top: 8px; font-size: 14px; color: var(--muted); }
+  h2 { margin-top: 30px; font-size: 20px; color: var(--text); line-height: 1.3; }
+  p { margin-top: 10px; }
+  ul { margin: 10px 0 0 20px; display: grid; gap: 8px; }
+  li b, p b { color: var(--text); }
+  .note { margin-top: 12px; padding: 14px 16px; border-radius: 14px; background: var(--panel); border: 1px solid var(--line); }
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  .doc[hidden] { display: none; }
+</style>
+<noscript><style>.doc[hidden] { display: block; }</style></noscript>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <a class="brand" href="./">Махабат</a>
+    <div class="langs" role="group" aria-label="Тил / Язык / Language">
+      <button type="button" data-lang="ky" aria-pressed="true">Кыргызча</button>
+      <button type="button" data-lang="ru" aria-pressed="false">Русский</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+
+  <!-- ===================== КЫРГЫЗЧА ===================== -->
+  <article class="doc" id="doc-ky" lang="ky">
+    <h1>Махабат: балдарды коргоо стандарттары</h1>
+    <p class="meta">Тиркеме: Махабат (иштеп чыгуучу: ChynDev). Акыркы жаңыртуу: 2026-жылдын 19-октябры.</p>
+
+    <h2>1. Биздин позиция</h2>
+    <p>Махабат тиркемеси <b>18 жаштан өткөн адамдар үчүн</b>. Биз балдарга карата сексуалдык зомбулукка жана эксплуатацияга (CSAE) <b>нөл толеранттуулук</b> менен мамиле кылабыз. Мындай мазмунга же иш-аракетке тиркемеде эч кандай шарт менен жол берилбейт.</p>
+
+    <h2>2. Эмнеге тыюу салынат</h2>
+    <ul>
+      <li>Балдарга карата сексуалдык зомбулук жана эксплуатация (CSAE).</li>
+      <li>Балдардын сексуалдык мазмунундагы сүрөттөрүн, видеолорун же текстин түзүү, жайылтуу, сактоо же суроо (CSAM).</li>
+      <li>Грумингди: баланы сексуалдык байланышка же сексуалдык сүрөт алмашууга алдап тартуу (онлайн же оффлайн).</li>
+      <li>18 жашка чыга элек адамдарды таанышууга тартуу, аларга жазуу же алардын профилин түзүү.</li>
+      <li>Балдарды сексуалдык максатта издөө, жалдоо же пайдалануу аракеттери.</li>
+    </ul>
+
+    <h2>3. Жаш чектөө</h2>
+    <ul>
+      <li>Тиркемени 18 жаштан өткөн адамдар гана колдоно алат.</li>
+      <li>Профиль түзүүдө жашы 18ден төмөн болгон колдонуучуну каттоого болбойт.</li>
+      <li>Колдонуучунун 18 жашка чыкпаганы белгилүү болсо, анын профили өчүрүлөт.</li>
+    </ul>
+
+    <h2>4. Кантип кабарлоо керек</h2>
+    <ul>
+      <li><b>Тиркемеде:</b> каалаган колдонуучуга жеке чаттын менюсундагы <b>«Даттануу»</b> аркылуу даттансаңыз болот. Даттанууну модератор көрөт. Ошондой эле колдонуучуну <b>бөгөттөөгө</b> болот.</li>
+      <li><b>Почта аркылуу:</b> төмөндөгү дарекке жазыңыз, кыскача эмне болгонун жана колдонуучунун номерин (№) көрсөтүңүз.</li>
+    </ul>
+
+    <h2>5. Биз эмне кылабыз</h2>
+    <ul>
+      <li>Даттанууларды модератор тезирээк карайт.</li>
+      <li>Эреже бузган мазмунду өчүрөбүз, колдонуучуну эскертебиз же бөгөттөйбүз.</li>
+      <li>Балдардын сексуалдык мазмуну (CSAM) бар экени бизге чындап белгилүү болсо, аны өчүрөбүз, колдонуучуну бөгөттөйбүз жана мыйзамга ылайык укук коргоо органдарына жана зарыл болсо балдарды коргоо боюнча тиешелүү уюмдарга кабарлайбыз.</li>
+      <li>Google Play'ден келген CSAE боюнча билдирүүлөргө жооп беребиз жана кызматташабыз.</li>
+    </ul>
+
+    <h2>6. Балдарды коргоо боюнча байланыш</h2>
+    <p>Балдарды коргоо боюнча жооптуу адам: <b class="person"></b><br>Электрондук почта: <a class="mail" href="#"></a></p>
+    <div class="note">
+      <p>Эгер бала коркунучта турса же зомбулукка кабылган деп ойлосоңуз, жергиликтүү укук коргоо органдарына дароо кайрылыңыз.</p>
+    </div>
+  </article>
+
+  <!-- ===================== РУССКИЙ ===================== -->
+  <article class="doc" id="doc-ru" lang="ru" hidden>
+    <h1>Махабат: стандарты безопасности детей</h1>
+    <p class="meta">Приложение: Махабат (разработчик: ChynDev). Последнее обновление: 19 октября 2026 г.</p>
+
+    <h2>1. Наша позиция</h2>
+    <p>Приложение Махабат предназначено <b>только для лиц старше 18 лет</b>. Мы придерживаемся политики <b>нулевой терпимости</b> к сексуальному насилию и эксплуатации детей (CSAE). Такому контенту и таким действиям в приложении нет места ни при каких условиях.</p>
+
+    <h2>2. Что запрещено</h2>
+    <ul>
+      <li>Сексуальное насилие и эксплуатация детей (CSAE).</li>
+      <li>Создание, распространение, хранение или запрос изображений, видео или текстов сексуального характера с участием детей (CSAM).</li>
+      <li>Груминг: вовлечение ребёнка в сексуальные контакты или обмен сексуальными изображениями (онлайн или офлайн).</li>
+      <li>Вовлечение в знакомства лиц младше 18 лет, переписка с ними или создание их профилей.</li>
+      <li>Попытки искать, вербовать или использовать детей в сексуальных целях.</li>
+    </ul>
+
+    <h2>3. Возрастные ограничения</h2>
+    <ul>
+      <li>Пользоваться приложением могут только лица старше 18 лет.</li>
+      <li>При создании профиля нельзя указать возраст младше 18 лет.</li>
+      <li>Если станет известно, что пользователю меньше 18 лет, его профиль будет удалён.</li>
+    </ul>
+
+    <h2>4. Как сообщить о нарушении</h2>
+    <ul>
+      <li><b>В приложении:</b> на любого пользователя можно пожаловаться через пункт <b>«Жалоба»</b> в меню личного чата. Жалобу рассматривает модератор. Пользователя также можно <b>заблокировать</b>.</li>
+      <li><b>По почте:</b> напишите на адрес ниже, кратко опишите ситуацию и укажите номер пользователя (№).</li>
+    </ul>
+
+    <h2>5. Что делаем мы</h2>
+    <ul>
+      <li>Модератор рассматривает жалобы в кратчайшие сроки.</li>
+      <li>Нарушающий контент удаляется, пользователь получает предупреждение или блокировку.</li>
+      <li>Если нам стало достоверно известно о материалах сексуального насилия над детьми (CSAM), мы удаляем их, блокируем пользователя и в соответствии с законом сообщаем правоохранительным органам и при необходимости профильным организациям по защите детей.</li>
+      <li>Мы отвечаем на уведомления Google Play о CSAE и сотрудничаем с ними.</li>
+    </ul>
+
+    <h2>6. Контакт по вопросам безопасности детей</h2>
+    <p>Ответственное лицо по вопросам безопасности детей: <b class="person"></b><br>Электронная почта: <a class="mail" href="#"></a></p>
+    <div class="note">
+      <p>Если вы считаете, что ребёнку угрожает опасность или он стал жертвой насилия, немедленно обратитесь в местные правоохранительные органы.</p>
+    </div>
+  </article>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <article class="doc" id="doc-en" lang="en" hidden>
+    <h1>Mahabat: child safety standards</h1>
+    <p class="meta">App: Mahabat (developer: ChynDev). Last updated: October 19, 2026.</p>
+
+    <h2>1. Our position</h2>
+    <p>Mahabat is <b>only for adults aged 18 and over</b>. We have <b>zero tolerance</b> for child sexual abuse and exploitation (CSAE). Such content and behaviour are not allowed in the app under any circumstances.</p>
+
+    <h2>2. What is prohibited</h2>
+    <ul>
+      <li>Child sexual abuse and exploitation (CSAE).</li>
+      <li>Creating, sharing, storing or requesting images, videos or text of a sexual nature involving children (CSAM).</li>
+      <li>Grooming: befriending a child to facilitate sexual contact or the exchange of sexual imagery, online or offline.</li>
+      <li>Drawing people under 18 into dating, contacting them, or creating profiles for them.</li>
+      <li>Attempts to seek out, recruit or use children for sexual purposes.</li>
+    </ul>
+
+    <h2>3. Age restriction</h2>
+    <ul>
+      <li>Only people aged 18 and over may use the app.</li>
+      <li>A profile cannot be created with an age below 18.</li>
+      <li>If we learn that a user is under 18, the profile is deleted.</li>
+    </ul>
+
+    <h2>4. How to report</h2>
+    <ul>
+      <li><b>In the app:</b> you can report any user through the <b>“Report”</b> option in the private chat menu. A moderator reviews the report. You can also <b>block</b> a user.</li>
+      <li><b>By email:</b> write to the address below, briefly describe what happened and give the user’s number (№).</li>
+    </ul>
+
+    <h2>5. What we do</h2>
+    <ul>
+      <li>A moderator reviews reports as quickly as possible.</li>
+      <li>Violating content is removed, and the user is warned or banned.</li>
+      <li>If we obtain actual knowledge of child sexual abuse material (CSAM), we remove it, ban the user and, in accordance with the law, report it to law enforcement and, where appropriate, to relevant child protection organisations.</li>
+      <li>We respond to and cooperate with notifications from Google Play about CSAE.</li>
+    </ul>
+
+    <h2>6. Child safety contact</h2>
+    <p>Designated child safety contact: <b class="person"></b><br>Email: <a class="mail" href="#"></a></p>
+    <div class="note">
+      <p>If you believe a child is in danger or has been abused, contact your local law enforcement immediately.</p>
+    </div>
+  </article>
+
+  <footer>© Махабат · ChynDev</footer>
+</div>
+
+<script>
+  // ---------------------------------------------------------------
+  // Бул жерди бир жолу толтуруңуз
+  // ---------------------------------------------------------------
+  const CONTACT_EMAIL = "";   // ачык почта (privacy.html менен бирдей)
+  const CONTACT_NAME  = "";   // балдарды коргоо боюнча жооптуу адамдын аты-жөнү
+
+  document.querySelectorAll(".mail").forEach((a) => {
+    if (CONTACT_EMAIL) {
+      a.href = "mailto:" + CONTACT_EMAIL;
+      a.textContent = CONTACT_EMAIL;
+    } else {
+      a.removeAttribute("href");
+      a.textContent = "[CONTACT_EMAIL толтурулган эмес]";
+    }
+  });
+  document.querySelectorAll(".person").forEach((el) => {
+    el.textContent = CONTACT_NAME || "[CONTACT_NAME толтурулган эмес]";
+  });
+
+  const buttons = document.querySelectorAll(".langs button");
+  function show(lang) {
+    document.querySelectorAll(".doc").forEach((d) => { d.hidden = d.id !== "doc-" + lang; });
+    buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+    document.documentElement.lang = lang;
+  }
+  buttons.forEach((b) => b.addEventListener("click", () => show(b.dataset.lang)));
+
+  const saved = (navigator.language || "").toLowerCase();
+  if (saved.startsWith("ru")) show("ru");
+  else if (saved.startsWith("en")) show("en");
+</script>
+</body>
+</html>
