@@ -99,7 +99,8 @@
     <ul>
       <li><b>Башка колдонуучулар.</b> Профилиңиздеги маалымат (аты, жашы, жери, тексттери, сүрөтүңүз) башка колдонуучуларга көрүнөт. Чаттагы кабарлар сүйлөшкөн адамга көрүнөт.</li>
       <li><b>Даттануулар.</b> Колдонуучу даттанса, ошол чаттын акыркы кабарлары жана даттанылган колдонуучунун профили модераторго (иштеп чыгуучуга) көрүнөт.</li>
-      <li><b>Кызмат көрсөтүүчүлөр</b> (биздин атыбыздан иштешет): Google Firebase (маалыматты сактоо), Agora (үн чалууну өткөрүү), Cloudflare (чалууга кирүү ачкычын түзүү жана күндүк чектөөнү эсептөө).</li>
+      <li><b>Кызмат көрсөтүүчүлөр</b> (биздин атыбыздан иштешет): Google Firebase (маалыматты сактоо жана эскертме жөнөтүү, FCM), Agora (үн чалууну өткөрүү), Cloudflare (чалууга кирүү ачкычын түзүү, күндүк чектөөнү эсептөө жана эскертмени Google'га өткөрүү).</li>
+      <li><b>Эскертмелер (push):</b> жаңы кабар келгенде тиркеме жабык болсо да эскертме чыгышы үчүн телефондун эскертме токени серверде сакталат. Кабардын тексти жана жөнөтүүчүнүн аты эскертме үчүн Cloudflare жана Google аркылуу убактылуу өтөт, сакталбайт. Эскертмелерди телефондун орнотууларынан өчүрсөңүз болот.</li>
       <li><b>Мыйзам боюнча.</b> Мыйзам талап кылса, мамлекеттик органдарга.</li>
     </ul>
 
@@ -172,7 +173,8 @@
     <ul>
       <li><b>Другие пользователи.</b> Данные вашего профиля (имя, возраст, место, тексты, фото) видны другим пользователям. Сообщения в чате видны собеседнику.</li>
       <li><b>Жалобы.</b> Если на вас пожаловались, последние сообщения этого чата и ваш профиль видны модератору (разработчику).</li>
-      <li><b>Поставщики услуг</b> (работают от нашего имени): Google Firebase (хранение данных), Agora (передача голоса при звонках), Cloudflare (создание ключа доступа к звонку и подсчёт дневного лимита).</li>
+      <li><b>Поставщики услуг</b> (работают от нашего имени): Google Firebase (хранение данных и отправка уведомлений, FCM), Agora (передача голоса при звонках), Cloudflare (создание ключа доступа к звонку, подсчёт дневного лимита и передача уведомления в Google).</li>
+      <li><b>Уведомления (push):</b> чтобы уведомление о новом сообщении приходило даже при закрытом приложении, токен уведомлений телефона хранится на сервере. Текст сообщения и имя отправителя временно проходят через Cloudflare и Google только для показа уведомления и не сохраняются. Уведомления можно отключить в настройках телефона.</li>
       <li><b>По закону.</b> Государственным органам, если этого требует закон.</li>
     </ul>
 
@@ -245,7 +247,8 @@
     <ul>
       <li><b>Other users.</b> Your profile information (name, age, location, texts, photo) is visible to other users. Chat messages are visible to the person you chat with.</li>
       <li><b>Reports.</b> If a user reports you, the recent messages of that chat and your profile are visible to the moderator (the developer).</li>
-      <li><b>Service providers</b> (acting on our behalf): Google Firebase (data storage), Agora (carrying voice during calls), Cloudflare (creating call access keys and counting the daily limit).</li>
+      <li><b>Service providers</b> (acting on our behalf): Google Firebase (data storage and sending notifications, FCM), Agora (carrying voice during calls), Cloudflare (creating call access keys, counting the daily limit and passing the notification to Google).</li>
+      <li><b>Notifications (push):</b> so that a new-message notification arrives even when the app is closed, your phone’s notification token is stored on our server. The message text and the sender’s name pass temporarily through Cloudflare and Google only to display the notification and are not stored. You can turn notifications off in your phone settings.</li>
       <li><b>By law.</b> Public authorities, where the law requires it.</li>
     </ul>
 
